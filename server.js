@@ -122,7 +122,7 @@ app.post('/rooms', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   // For demo: hardcoded credentials (move to DB for production)
-  if (username === process.env.USER && password === process.env.PASSWORD) {
+  if (username === 'delhs' && password === '12345678') {
     res.json({ success: true, name: username });
   } else {
     res.status(401).json({ success: false, message: 'Λάθος όνομα χρήστη ή κωδικός.' });
