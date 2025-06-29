@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mysql = require('mysql2');
 
-const db = mysql.createConnection('mysql://root:XtWbiihLSXxPYVKcQQnYOunzLKExFagj@yamanote.proxy.rlwy.net:56524/railway')
+const db = mysql.createConnection(process.env.SQL_URL)
 
 /*const db = mysql.createConnection({
   host: process.env.DB_HOST,
