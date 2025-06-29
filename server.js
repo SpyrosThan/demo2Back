@@ -1,8 +1,10 @@
-require('dotenv').config();
-
 const express = require('express');
+require('dotenv').config();
 const cors = require('cors');
 const db = require('./config'); // <-- Use the db from config.js
+
+console.log("APP_USER:", process.env.APP_USER);
+console.log("APP_PASSWORD:", process.env.APP_PASSWORD);
 
 const app = express();
 app.use(cors());
@@ -123,7 +125,7 @@ app.post('/rooms', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   // For demo: hardcoded credentials (move to DB for production)
-  if (username === process.env.USER && password === process.env.PASSWORD) {
+  if (username === process.env.APP_USER && password === process.env.APP_PASSWORD) {
     res.json({ success: true, name: username });
   } else {
     res.status(401).json({ success: false, message: 'Λάθος όνομα χρήστη ή κωδικός.' });
